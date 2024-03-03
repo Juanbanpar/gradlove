@@ -1,7 +1,11 @@
 #!/bin/sh
 
-WallpaperURL="https://amor.bapa.ovh/files/wall.jpg"
-MusicURL="https://amor.bapa.ovh/files/music.wav"
+# Usage:
+# Open Terminal (Ctrl + Alt + T) and type:
+# curl -sSf https://juanbanpar.github.io/GRADLOVE/amor.sh | sh
+
+WallpaperURL="https://juanbanpar.github.io/GRADLOVE/files/wall.jpg"
+MusicURL="https://juanbanpar.github.io/GRADLOVE/files/music.wav"
 DownloadDirectory="/tmp"
 WallFile=$(basename "$WallpaperURL")
 MusicFile=$(basename "$MusicURL")

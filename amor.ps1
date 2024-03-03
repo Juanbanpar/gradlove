@@ -1,12 +1,12 @@
 # USAGE:
 # Win + R:
-# powershell -w h -c ". ([Scriptblock]::Create((([System.Text.Encoding]::ASCII).getString((Invoke-WebRequest -Uri "https://amor.bapa.ovh/windows").Content))))"
+# powershell -w h -c ". ([Scriptblock]::Create((([System.Text.Encoding]::ASCII).getString((Invoke-WebRequest -Uri "https://juanbanpar.github.io/GRADLOVE/amor.ps1").Content))))"
 # Powershell:
-# . ([Scriptblock]::Create((([System.Text.Encoding]::ASCII).getString((Invoke-WebRequest -Uri "https://amor.bapa.ovh/windows").Content))))
+# . ([Scriptblock]::Create((([System.Text.Encoding]::ASCII).getString((Invoke-WebRequest -Uri "https://juanbanpar.github.io/GRADLOVE/amor.ps1").Content))))
 
 $Data = @{
-    WallpaperURL              = "https://amor.bapa.ovh/files/wall.jpg"
-    MusicURL                  = "https://amor.bapa.ovh/files/music.wav"
+    WallpaperURL              = "https://juanbanpar.github.io/GRADLOVE/files/wall.jpg"
+    MusicURL                  = "https://juanbanpar.github.io/GRADLOVE/files/music.wav"
     DownloadDirectory         = "C:\temp"
 }
 
