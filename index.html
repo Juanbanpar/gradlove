@@ -1,1 +1,79 @@
- 
+<!DOCTYPE html>
+<html lang="gl">
+  <head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="static/styles.css"/>
+  </head>
+  <body style="
+  background-image: url('files/wall.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  ">
+  <style>
+    body {
+      font-family: "Comic Sans MS", "Comic Sans", cursive;
+      h1 {
+        font-size: 48px;
+      }
+      h2 {
+        font-size: 36px;
+      }
+      h3 {
+        font-size: 28px;
+      }
+    }
+  </style>
+    <h1 style="">GRADLOVE</h1>
+    <h2>Instrucións para Windows</h2>
+      <h3>Opción 1: Premer Win+R e executar:</h3>
+        <input readonly type="text" value='powershell -w h -c ". ([Scriptblock]::Create((([System.Text.Encoding]::ASCII).getString((Invoke-WebRequest -Uri "https://juanbanpar.github.io/GRADLOVE/amor.ps1").Content))))"' id="myInput1" style='width:50%'>
+        <button onclick="myFunction1()">Copy</button>
+      <h3>Opción 2: Abrir un Powershell e executar:</h3>
+        <input readonly type="text" value='. ([Scriptblock]::Create((([System.Text.Encoding]::ASCII).getString((Invoke-WebRequest -Uri "https://juanbanpar.github.io/GRADLOVE/amor.ps1").Content))))' id="myInput2" style='width:50%'>
+        <button onclick="myFunction2()">Copy</button>
+    <h2>Instrucións para Ubuntu</h2>
+        <h3>Abrir un terminal (Ctrl+Alt+T) e executar:</h3>
+        <input readonly type="text" value="curl -sSf https://juanbanpar.github.io/GRADLOVE/amor.sh | sh" id="myInput3" style='width:50%'>
+        <button onclick="myFunction3()">Copy</button>
+    <br>
+    <img src="files/heart-locket.gif">
+    <img src="files/happy-cat.gif">
+  </body>
+
+  <script>
+    function myFunction1() {
+        // Get the text field
+        var copyText = document.getElementById("myInput1");
+
+        // Select the text field
+        copyText.select();
+        copyText.setSelectionRange(0, 99999); // For mobile devices
+
+        // Copy the text inside the text field
+        navigator.clipboard.writeText(copyText.value);
+    }
+    function myFunction2() {
+        // Get the text field
+        var copyText = document.getElementById("myInput2");
+
+        // Select the text field
+        copyText.select();
+        copyText.setSelectionRange(0, 99999); // For mobile devices
+
+        // Copy the text inside the text field
+        navigator.clipboard.writeText(copyText.value);
+    }
+    function myFunction3() {
+        // Get the text field
+        var copyText = document.getElementById("myInput3");
+
+        // Select the text field
+        copyText.select();
+        copyText.setSelectionRange(0, 99999); // For mobile devices
+
+        // Copy the text inside the text field
+        navigator.clipboard.writeText(copyText.value);
+    }
+  </script>
+</html>
