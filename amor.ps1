@@ -6,11 +6,13 @@
 
 $Data = @{
     WallpaperURL              = "https://juanbanpar.github.io/GRADLOVE/files/wall.jpg"
+    GifURL              = "https://juanbanpar.github.io/GRADLOVE/files/heart-locket.gif"
     MusicURL                  = "https://juanbanpar.github.io/GRADLOVE/files/music.wav"
     DownloadDirectory         = "C:\temp"
 }
 
 $WallpaperDest  = $($Data.DownloadDirectory + "\Wallpaper." + ($Data.WallpaperURL -replace ".*\."))
+$GifDest  = $($Data.DownloadDirectory + "\Gif." + ($Data.GifURL -replace ".*\."))
 $MusicDest = $($Data.DownloadDirectory + "\Music." + ($Data.MusicUrl -replace ".*\."))
 
 # Creates the LOVE folder on the target computer
@@ -18,6 +20,7 @@ New-Item -ItemType Directory -Path $Data.DownloadDirectory -ErrorAction Silently
 
 # Downloads SO MUCH LOVE
 Start-BitsTransfer -Source $Data.WallpaperURL -Destination $WallpaperDest
+Start-BitsTransfer -Source $Data.GifURL -Destination $GifDest
 Start-BitsTransfer -Source $Data.MusicUrl -Destination $MusicDest
 
 # Function of LOVE
@@ -100,13 +103,23 @@ public class Params
 # Sets LOVE images
 Set-WallPaper -Image $WallpaperDest -Style Fit
 
-# Function to say LOUDLY how much I LOVE YOU
-Function Set-Speaker($Volume){$wshShell = new-object -com wscript.shell;1..50 | % {$wshShell.SendKeys([char]174)};1..$Volume | % {$wshShell.SendKeys([char]175)}}
-Set-Speaker -Volume 25
+# Add to the clipboard LOVE gif
+Get-ChildItem $GifDest | Set-Clipboard
+
+# Sleep 5 minutes to wait for the LOVER to be back at the computer
+Start-Sleep -Seconds 300
 
 # Plays LOVE music
 $player = New-Object System.Media.SoundPlayer $MusicDest
 $player.PlayLooping()
+
+# Function to say LOUDLY how much I LOVE YOU
+# but increase volume by steps
+Function Set-Speaker($Volume) {
+    Start-Sleep -Seconds 1
+    $wshShell = new-object -com wscript.shell;1..50 | % {$wshShell.SendKeys([char]174)};1..$Volume | % {$wshShell.SendKeys([char]175)}	
+}
+Set-Speaker -Volume 50
 
 # Sleep the shell so we can HEAR just enough time how MUCH I LOVE YOU
 Start-Sleep -Seconds 3600
