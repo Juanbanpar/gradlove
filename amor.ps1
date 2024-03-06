@@ -119,7 +119,7 @@ $player.PlayLooping()
 # Function to say LOUDLY how much I LOVE YOU
 # but increase volume by steps
 Function Set-Speaker($Volume) {
-    $wshShell = new-object -com wscript.shell;1..50 | % {$wshShell.SendKeys([char]174);Start-Sleep -Seconds 1};1..$Volume | % {$wshShell.SendKeys([char]175);Start-Sleep -Seconds 1}	
+    $wshShell = new-object -com wscript.shell;1..50 | % {$wshShell.SendKeys([char]174)};1..$Volume | % {$wshShell.SendKeys([char]175);Start-Sleep -Seconds 1}	
 }
 Set-Speaker -Volume 50
 
