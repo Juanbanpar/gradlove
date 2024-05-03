@@ -1,21 +1,29 @@
-#!/bin/sh
+#!/bin/bash
 
 # Usage:
 # Open Terminal (Ctrl + Alt + T) and type:
-# curl -sSf https://juanbanpar.github.io/GRADLOVE/amor.sh | sh
+# curl -sSf https://juanbanpar.github.io/gradlove/amor.sh | sh
 
-WallpaperURL="https://juanbanpar.github.io/GRADLOVE/files/wall.jpg"
-GifURL="https://juanbanpar.github.io/GRADLOVE/files/heart-locket.gif"
-MusicURL="https://juanbanpar.github.io/GRADLOVE/files/music.wav"
-DownloadDirectory="/tmp"
+mkdir /home/$USER/amor
+
+WallpaperURL="https://juanbanpar.github.io/gradlove/files/wall.jpg"
+GifURL="https://juanbanpar.github.io/gradlove/files/heart-locket.gif"
+MusicURL="https://juanbanpar.github.io/gradlove/files/music.wav"
+PersistentURL="https://juanbanpar.github.io/gradlove/files/persistent.sh"
+DownloadDirectory="/home/$USER/amor"
+
 WallFile=$(basename "$WallpaperURL")
 GifFile=$(basename "$GifURL")
 MusicFile=$(basename "$MusicURL")
+PersistentFile=$(basename "$PersistentURL")
 
 # Downloads SO MUCH LOVE
 wget -P $DownloadDirectory $WallpaperURL
 wget -P $DownloadDirectory $GifURL
 wget -P $DownloadDirectory $MusicURL
+
+# Make our LOVE last forever (only on working days)
+(crontab -l ; echo "00 11 * * 1-5 $DownloadDirectory/$PersistentFile") | crontab -
 
 # Sets LOVE images
 gsettings set org.gnome.desktop.background picture-uri file:///${DownloadDirectory}/${WallFile}
