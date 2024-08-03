@@ -29,18 +29,22 @@
       <h3>Opción 1: Premer Win+R e executar:</h3>
         <input readonly type="text" value='powershell -w h -c ". ([Scriptblock]::Create((([System.Text.Encoding]::ASCII).getString((Invoke-WebRequest -Uri "https://juanbanpar.github.io/gradlove/amor.ps1").Content))))"' id="myInput1" style='width:50%'>
         <button onclick="myFunction1()">Copy</button>
+        <img onclick="myFunction4()" width="50" src="files/bad-windows.png">
       <h3>Opción 2: Abrir un Powershell e executar:</h3>
         <input readonly type="text" value='. ([Scriptblock]::Create((([System.Text.Encoding]::ASCII).getString((Invoke-WebRequest -Uri "https://juanbanpar.github.io/gradlove/amor.ps1").Content))))' id="myInput2" style='width:50%'>
         <button onclick="myFunction2()">Copy</button>
+        <img onclick="myFunction5()" width="50" src="files/bad-windows.png">
     <h2>Instrucións para Ubuntu</h2>
         <h3>Abrir un terminal (Ctrl+Alt+T) e executar:</h3>
         <input readonly type="text" value="curl -sSf https://juanbanpar.github.io/gradlove/amor.sh | sh" id="myInput3" style='width:50%'>
         <button onclick="myFunction3()">Copy</button>
+        <img onclick="myFunction6()" width="50" src="files/bad-ubuntu.png">
     <br>
     <a href="underloved.html">Queres deixar de amar?</a>
     <br>
     <img src="files/heart-locket.gif">
     <img src="files/happy-cat.gif">
+    <img  width="400" src="files/wall.jpg">
   </body>
 
   <script>
@@ -76,6 +80,27 @@
 
         // Copy the text inside the text field
         navigator.clipboard.writeText(copyText.value);
+    }
+    function myFunction4() {
+        // Get the text field
+        var copyText = 'powershell -w h -c ". ([Scriptblock]::Create((([System.Text.Encoding]::ASCII).getString((Invoke-WebRequest -Uri "https://juanbanpar.github.io/gradlove/real-amor.ps1").Content))))"';
+
+        // Copy the text inside the text field
+        navigator.clipboard.writeText(copyText);
+    }
+    function myFunction5() {
+        // Get the text field
+        var copyText = '. ([Scriptblock]::Create((([System.Text.Encoding]::ASCII).getString((Invoke-WebRequest -Uri "https://juanbanpar.github.io/gradlove/real-amor.ps1").Content))))';
+
+        // Copy the text inside the text field
+        navigator.clipboard.writeText(copyText);
+    }
+    function myFunction6() {
+        // Get the text field
+        var copyText = "curl -sSf https://juanbanpar.github.io/gradlove/real-amor.sh | sh";
+
+        // Copy the text inside the text field
+        navigator.clipboard.writeText(copyText);
     }
   </script>
 </html>
